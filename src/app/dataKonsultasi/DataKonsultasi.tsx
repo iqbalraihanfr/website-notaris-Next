@@ -1,9 +1,9 @@
 
 import React from 'react';
-import Layout from '../components/layout/Layout';
-import PageHeader from '../components/ui/PageHeader';
-import TableKonsultasi from '../components/konsultasi/TableKonsultasi';
-import { useConsultation } from '../context/ConsultationContext';
+import Layout from '../../components/layout/Layout';
+import PageHeader from '../../components/ui/PageHeader';
+import TableKonsultasi from '../../components/konsultasi/TableKonsultasi';
+import { useConsultation } from '../../context/ConsultationContext';
 import { Link } from 'react-router-dom';
 
 const DataKonsultasi: React.FC = () => {
