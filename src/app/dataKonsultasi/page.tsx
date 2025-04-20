@@ -1,5 +1,6 @@
+'use client';
 import React from "react";
-import Layout from "../../app/layout";
+import { Layout } from "../../app/layout";
 import PageHeader from "../../components/ui/PageHeader";
 import TableKonsultasi from "../../components/konsultasi/TableKonsultasi";
 import { useConsultation } from "../../context/ConsultationContext";
@@ -18,7 +19,7 @@ const DataKonsultasi: React.FC = () => {
       <section className="py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-8 flex items-center justify-between">
-            <h2 className="text-2xl font-bold text-notary font-serif">
+            <h2 className="text-2xl font-bold text-gray-800 font-serif">
               Daftar Konsultasi
             </h2>
             <Link href="/konsultasi" className="btn-primary">
@@ -41,7 +42,7 @@ const DataKonsultasi: React.FC = () => {
           )}
 
           <div className="mt-12 bg-gray-50 p-6 rounded-lg border border-gray-200">
-            <h3 className="text-lg font-bold text-notary mb-4">
+            <h3 className="text-lg font-bold text-gray-800 mb-4">
               Informasi Data Konsultasi
             </h3>
             <p className="text-gray-600 mb-4">

@@ -1,6 +1,5 @@
-
 import React from 'react';
-import Layout from "../../app/layout";
+import { Layout } from "../../app/layout";
 import PageHeader from '../../components/ui/PageHeader';
 
 // Team members data

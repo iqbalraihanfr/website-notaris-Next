@@ -1,34 +1,62 @@
 import React from "react";
-import Layout from "../app/layout";
 import Link from "next/link";
-import { ArrowDown } from "lucide-react";
+import { ArrowDown, CheckCircle, Clock, Shield, Users, FileText, Building, Home } from "lucide-react";
 
 const servicesPreview = [
   {
     title: "Pendirian PT",
     description:
       "Layanan pendirian Perseroan Terbatas dengan legalitas yang kuat dan proses yang efisien.",
+    icon: Building,
   },
   {
     title: "Akta Jual Beli",
     description:
       "Pembuatan akta jual beli properti dan aset dengan kepastian hukum yang terjamin.",
+    icon: Home,
   },
   {
     title: "Akta Waris",
     description:
       "Solusi terpercaya untuk pembagian waris sesuai dengan ketentuan hukum yang berlaku.",
+    icon: FileText,
+  },
+];
+
+const features = [
+  {
+    title: "Tim Profesional",
+    description: "Dilayani oleh notaris berpengalaman dan staff yang terlatih.",
+    icon: Users,
+  },
+  {
+    title: "Proses Cepat",
+    description: "Penyelesaian dokumen legal dengan waktu yang efisien.",
+    icon: Clock,
+  },
+  {
+    title: "Kepastian Hukum",
+    description: "Dokumen legal yang sah dan diakui secara hukum.",
+    icon: Shield,
+  },
+  {
+    title: "Konsultasi Gratis",
+    description: "Layanan konsultasi awal tanpa biaya untuk memahami kebutuhan Anda.",
+    icon: CheckCircle,
   },
 ];
 
 const Index: React.FC = () => {
   return (
-    <Layout>
+    <>
       {/* Hero Section */}
-      <section className="bg-notary text-white h-[80vh] min-h-[500px] flex items-center relative">
+      <section className="relative h-screen min-h-[600px] flex items-center">
+        <div className="absolute inset-0 bg-gradient-to-r from-primary-700 to-primary-900 opacity-90"></div>
+        <div className="absolute inset-0 pattern-grid-lg opacity-10"></div>
+        
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 z-10">
-          <div className="max-w-3xl">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 font-serif">
+          <div className="max-w-3xl animate-fade-in">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white font-serif">
               Solusi Notaris Digital untuk Kebutuhan Legal Anda
             </h1>
             <p className="text-xl md:text-2xl mb-8 text-gray-200">
@@ -55,20 +83,38 @@ const Index: React.FC = () => {
             <ArrowDown className="animate-bounce" />
           </a>
         </div>
+      </section>
 
-        {/* Background overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-notary to-notary-light opacity-90"></div>
-
-        {/* Background pattern */}
-        <div className="absolute inset-0 opacity-10 pattern-grid-lg"></div>
+      {/* Features Section */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="section-title">Mengapa Memilih Kami</h2>
+            <p className="section-subtitle">
+              Kami menawarkan layanan notaris yang profesional, cepat, dan terpercaya untuk berbagai kebutuhan legal Anda.
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {features.map((feature, index) => (
+              <div key={index} className="card group hover:border-primary-200 border border-gray-100">
+                <div className="w-12 h-12 bg-primary-100 text-primary-600 rounded-lg flex items-center justify-center mb-4 group-hover:bg-[rgb(2,132,199)] group-hover:text-white transition-colors duration-300">
+                  <feature.icon className="h-6 w-6" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-800 mb-2">{feature.title}</h3>
+                <p className="text-gray-600">{feature.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* About Preview Section */}
-      <section id="about-preview" className="py-16 md:py-24 bg-white">
+      <section id="about-preview" className="py-16 md:py-24 bg-gray-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-notary font-serif">
+            <div className="animate-slide-up">
+              <h2 className="section-title text-primary-700">
                 Tentang Notaris Digital
               </h2>
               <p className="text-gray-700 mb-6 leading-relaxed">
@@ -82,20 +128,20 @@ const Index: React.FC = () => {
                 terlatih untuk memberikan pelayanan terbaik dan solusi yang
                 tepat untuk setiap kebutuhan klien.
               </p>
-              <Link href="/tentang" className="btn-primary">
+              <Link href="/tentangKami" className="btn-primary">
                 Selengkapnya Tentang Kami
               </Link>
             </div>
-            <div className="flex justify-center">
+            <div className="flex justify-center animate-slide-up" style={{ animationDelay: '0.2s' }}>
               <div className="relative">
-                <div className="w-full h-72 md:h-96 bg-gray-200 rounded-lg overflow-hidden">
-                  <div className="w-full h-full bg-notary-light bg-opacity-20 flex items-center justify-center text-notary">
+                <div className="w-full h-72 md:h-96 bg-gray-200 rounded-2xl overflow-hidden shadow-soft">
+                  <div className="w-full h-full bg-primary-100 bg-opacity-20 flex items-center justify-center text-primary-600">
                     <span className="text-lg font-medium">
                       Foto Tim Notaris
                     </span>
                   </div>
                 </div>
-                <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-notary-accent rounded-lg"></div>
+                <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-accent-500 rounded-2xl shadow-soft"></div>
               </div>
             </div>
           </div>
@@ -103,13 +149,13 @@ const Index: React.FC = () => {
       </section>
 
       {/* Services Preview */}
-      <section className="py-16 md:py-24 bg-gray-50">
+      <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 md:mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-notary font-serif mb-4">
+            <h2 className="section-title text-primary-700">
               Layanan Kami
             </h2>
-            <p className="text-gray-600 max-w-3xl mx-auto">
+            <p className="section-subtitle">
               Kami menyediakan berbagai layanan notaris untuk kebutuhan personal
               maupun bisnis Anda dengan proses yang cepat dan tepat.
             </p>
@@ -119,15 +165,24 @@ const Index: React.FC = () => {
             {servicesPreview.map((service, index) => (
               <div
                 key={index}
-                className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300"
+                className="card group hover:border-primary-200 border border-gray-100"
               >
-                <div className="w-12 h-12 bg-notary text-white rounded-lg flex items-center justify-center mb-4">
-                  <span className="text-xl font-bold">{index + 1}</span>
+                <div className="w-12 h-12 bg-primary-100 text-primary-600 rounded-lg flex items-center justify-center mb-4 group-hover:bg-[rgb(2,132,199)] group-hover:text-white transition-colors duration-300">
+                  <service.icon className="h-6 w-6" />
                 </div>
-                <h3 className="text-xl font-bold text-notary mb-3">
+                <h3 className="text-xl font-bold text-gray-800 mb-3">
                   {service.title}
                 </h3>
                 <p className="text-gray-600 mb-4">{service.description}</p>
+                <Link 
+                  href={`/layanan#${service.title.toLowerCase().replace(/\s+/g, '-')}`}
+                  className="text-primary-600 hover:text-primary-700 font-medium inline-flex items-center"
+                >
+                  Pelajari Lebih Lanjut
+                  <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </Link>
               </div>
             ))}
           </div>
@@ -140,9 +195,41 @@ const Index: React.FC = () => {
         </div>
       </section>
 
+      {/* Testimonials Section */}
+      <section className="py-16 md:py-24 bg-gray-50">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="section-title text-primary-700">
+              Apa Kata Klien Kami
+            </h2>
+            <p className="section-subtitle">
+              Testimoni dari klien yang telah menggunakan layanan kami
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            {[1, 2, 3].map((item) => (
+              <div key={item} className="card bg-white">
+                <div className="flex items-center mb-4">
+                  <div className="w-12 h-12 bg-gray-200 rounded-full mr-4"></div>
+                  <div>
+                    <h4 className="font-bold text-gray-800">Nama Klien {item}</h4>
+                    <p className="text-gray-500 text-sm">Pendirian PT</p>
+                  </div>
+                </div>
+                <p className="text-gray-600 italic">
+                  "Layanan yang sangat profesional dan cepat. Tim Notaris Digital membantu saya dalam proses pendirian PT dengan sangat baik."
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Call to Action */}
-      <section className="py-16 md:py-20 bg-notary text-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="py-16 md:py-20 bg-gradient-to-r from-primary-700 to-primary-900 text-white relative overflow-hidden">
+        <div className="absolute inset-0 pattern-grid-lg opacity-10"></div>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <h2 className="text-3xl md:text-4xl font-bold mb-6 font-serif">
             Perlukan Bantuan Notaris?
           </h2>
@@ -155,7 +242,7 @@ const Index: React.FC = () => {
           </Link>
         </div>
       </section>
-    </Layout>
+    </>
   );
 };
 

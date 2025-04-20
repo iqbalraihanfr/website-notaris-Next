@@ -1,11 +1,25 @@
 'use client';
 // Navbar.tsx
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
 
 const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 10) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -13,21 +27,29 @@ const Navbar: React.FC = () => {
 
   const navLinks = [
     { name: 'Beranda', path: '/' },
-    { name: 'Tentang Kami', path: '/tentang' },
+    { name: 'Tentang Kami', path: '/tentangKami' },
     { name: 'Layanan', path: '/layanan' },
     { name: 'Konsultasi', path: '/konsultasi' },
-    { name: 'Data Konsultasi', path: '/data-konsultasi' },
+    { name: 'Data Konsultasi', path: '/dataKonsultasi' },
     { name: 'Kontak', path: '/kontak' },
   ];
 
   return (
-    <header className="bg-white shadow-sm sticky top-0 z-50">
+    <header 
+      className={`sticky top-0 z-50 transition-all duration-300 ${
+        scrolled 
+          ? 'bg-white shadow-md py-2' 
+          : 'bg-transparent py-4'
+      }`}
+    >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center py-4">
+        <div className="flex justify-between items-center">
           <div className="flex items-center">
             <Link href="/" className="flex items-center">
-              <span className="text-notary font-serif font-bold text-xl sm:text-2xl">
-                Notaris <span className="text-notary-accent">Digital</span>
+              <span className={`text-xl sm:text-2xl font-serif font-bold transition-colors duration-300 ${
+                scrolled ? 'text-primary-600' : 'text-white'
+              }`}>
+                Notaris <span className="text-accent-500">Digital</span>
               </span>
             </Link>
           </div>
@@ -38,17 +60,33 @@ const Navbar: React.FC = () => {
               <Link
                 key={link.name}
                 href={link.path}
-                className="text-gray-700 hover:text-notary font-medium transition-colors duration-200"
+                className={`font-medium transition-colors duration-200 ${
+                  scrolled 
+                    ? 'text-gray-700 hover:text-primary-600' 
+                    : 'text-white hover:text-accent-300'
+                }`}
               >
                 {link.name}
               </Link>
             ))}
+            <Link 
+              href="/konsultasi" 
+              className={`px-4 py-2 rounded-lg font-medium transition-all duration-200 ${
+                scrolled 
+                  ? 'btn-primary' 
+                  : 'bg-white text-primary-600 hover:bg-accent-100'
+              }`}
+            >
+              Konsultasi Gratis
+            </Link>
           </nav>
 
           {/* Mobile menu button */}
           <button
             type="button"
-            className="md:hidden text-gray-700 hover:text-notary"
+            className={`md:hidden transition-colors duration-200 ${
+              scrolled ? 'text-gray-700' : 'text-white'
+            }`}
             onClick={toggleMenu}
           >
             <span className="sr-only">Open main menu</span>
@@ -62,17 +100,26 @@ const Navbar: React.FC = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden py-2 pb-4 animate-fade-in">
-            {navLinks.map((link) => (
+          <div className="md:hidden py-4 animate-slide-down">
+            <div className="bg-white rounded-xl shadow-soft p-4 mt-2">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.name}
+                  href={link.path}
+                  className="block py-2 px-3 text-gray-700 hover:text-primary-600 hover:bg-gray-50 rounded-md font-medium transition-colors duration-200"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {link.name}
+                </Link>
+              ))}
               <Link
-                key={link.name}
-                href={link.path}
-                className="block py-2 px-2 text-gray-700 hover:text-notary hover:bg-gray-50 rounded-md font-medium"
+                href="/konsultasi"
+                className="block mt-2 py-2 px-3 btn-primary rounded-md font-medium text-center transition-colors duration-200"
                 onClick={() => setIsMenuOpen(false)}
               >
-                {link.name}
+                Konsultasi Gratis
               </Link>
-            ))}
+            </div>
           </div>
         )}
       </div>
