@@ -1,6 +1,7 @@
-
+'use client';
+// Navbar.tsx
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { Menu, X } from 'lucide-react';
 
 const Navbar: React.FC = () => {
@@ -24,7 +25,7 @@ const Navbar: React.FC = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           <div className="flex items-center">
-            <Link to="/" className="flex items-center">
+            <Link href="/" className="flex items-center">
               <span className="text-notary font-serif font-bold text-xl sm:text-2xl">
                 Notaris <span className="text-notary-accent">Digital</span>
               </span>
@@ -36,7 +37,7 @@ const Navbar: React.FC = () => {
             {navLinks.map((link) => (
               <Link
                 key={link.name}
-                to={link.path}
+                href={link.path}
                 className="text-gray-700 hover:text-notary font-medium transition-colors duration-200"
               >
                 {link.name}
@@ -65,7 +66,7 @@ const Navbar: React.FC = () => {
             {navLinks.map((link) => (
               <Link
                 key={link.name}
-                to={link.path}
+                href={link.path}
                 className="block py-2 px-2 text-gray-700 hover:text-notary hover:bg-gray-50 rounded-md font-medium"
                 onClick={() => setIsMenuOpen(false)}
               >

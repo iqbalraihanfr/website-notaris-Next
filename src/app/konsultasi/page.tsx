@@ -1,11 +1,14 @@
 
 import React from 'react';
-import Layout from '../components/layout/Layout';
-import PageHeader from '../components/ui/PageHeader';
-import FormKonsultasi from '../components/konsultasi/FormKonsultasi';
+import Layout from "../../app/layout";
+import PageHeader from '../../components/ui/PageHeader';
+import FormKonsultasi from '../../components/konsultasi/FormKonsultasi';
+import { ConsultationProvider } from '@/context/ConsultationContext';
+
 
 const Konsultasi: React.FC = () => {
   return (
+    <ConsultationProvider>
     <Layout>
       <PageHeader 
         title="Konsultasi" 
@@ -95,6 +98,7 @@ const Konsultasi: React.FC = () => {
         </div>
       </section>
     </Layout>
+    </ConsultationProvider>
   );
 };
 

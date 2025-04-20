@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { Mail, Phone, MapPin } from 'lucide-react';
 
 const Footer: React.FC = () => {
@@ -24,27 +24,27 @@ const Footer: React.FC = () => {
             <h3 className="text-xl font-bold font-serif mb-4">Tautan Cepat</h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/" className="text-gray-300 hover:text-notary-accent transition-colors duration-200">
+                <Link href="/" className="text-gray-300 hover:text-notary-accent transition-colors duration-200">
                   Beranda
                 </Link>
               </li>
               <li>
-                <Link to="/tentang" className="text-gray-300 hover:text-notary-accent transition-colors duration-200">
+                <Link href="/tentang" className="text-gray-300 hover:text-notary-accent transition-colors duration-200">
                   Tentang Kami
                 </Link>
               </li>
               <li>
-                <Link to="/layanan" className="text-gray-300 hover:text-notary-accent transition-colors duration-200">
+                <Link href="/layanan" className="text-gray-300 hover:text-notary-accent transition-colors duration-200">
                   Layanan
                 </Link>
               </li>
               <li>
-                <Link to="/konsultasi" className="text-gray-300 hover:text-notary-accent transition-colors duration-200">
+                <Link href="/konsultasi" className="text-gray-300 hover:text-notary-accent transition-colors duration-200">
                   Konsultasi
                 </Link>
               </li>
               <li>
-                <Link to="/kontak" className="text-gray-300 hover:text-notary-accent transition-colors duration-200">
+                <Link href="/kontak" className="text-gray-300 hover:text-notary-accent transition-colors duration-200">
                   Kontak
                 </Link>
               </li>

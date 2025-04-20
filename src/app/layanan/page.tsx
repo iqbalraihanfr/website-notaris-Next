@@ -1,8 +1,8 @@
 
 import React from 'react';
-import Layout from '../components/layout/Layout';
-import PageHeader from '../components/ui/PageHeader';
-import { Link } from 'react-router-dom';
+import Layout from "../../app/layout";
+import PageHeader from '../../components/ui/PageHeader';
+import Link from 'next/link';
 
 // Services data
 const services = [
@@ -142,7 +142,7 @@ const Layanan: React.FC = () => {
                     ))}
                   </ul>
                   <Link
-                    to="/konsultasi"
+                    href="/konsultasi"
                     className="inline-block mt-2 text-notary hover:text-notary-light font-medium transition-colors duration-200"
                   >
                     Konsultasi Sekarang →
@@ -167,10 +167,10 @@ const Layanan: React.FC = () => {
               konsultasi personal.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Link to="/konsultasi" className="btn-primary">
+              <Link href="/konsultasi" className="btn-primary">
                 Konsultasi Gratis
               </Link>
-              <Link to="/kontak" className="btn-outline">
+              <Link href="/kontak" className="btn-outline">
                 Hubungi Kami
               </Link>
             </div>

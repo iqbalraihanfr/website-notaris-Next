@@ -1,7 +1,7 @@
 
 import React from 'react';
-import Layout from '../components/layout/Layout';
-import PageHeader from '../components/ui/PageHeader';
+import Layout from "../../app/layout";
+import PageHeader from '../../components/ui/PageHeader';
 import { Mail, Phone, MapPin, User, MessageSquare } from 'lucide-react';
 
 const KontakPage: React.FC = () => {
