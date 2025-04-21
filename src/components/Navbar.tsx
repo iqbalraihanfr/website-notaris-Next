@@ -47,7 +47,7 @@ const Navbar: React.FC = () => {
           <div className="flex items-center">
             <Link href="/" className="flex items-center">
               <span className={`text-xl sm:text-2xl font-serif font-bold transition-colors duration-300 ${
-                scrolled ? 'text-black' : 'text-white'
+                scrolled ? 'text-primary-600' : 'text-white'
               }`}>
                 Kantor <span className="text-accent-500">Notaris</span>
               </span>
@@ -62,8 +62,8 @@ const Navbar: React.FC = () => {
                 href={link.path}
                 className={`font-medium transition-colors duration-200 ${
                   scrolled 
-                    ? 'text-gray-700 hover:text-purple-600' 
-                    : 'text-white hover:text-purple-300'
+                    ? 'text-gray-700 hover:text-primary-600' 
+                    : 'text-white hover:text-accent-300'
                 }`}
               >
                 {link.name}
@@ -107,7 +107,7 @@ const Navbar: React.FC = () => {
                 <Link
                   key={link.name}
                   href={link.path}
-                  className="block py-2 px-3 text-gray-700 hover:text-purple-600 hover:bg-gray-50 rounded-md font-medium transition-colors duration-200"
+                  className="block py-2 px-3 text-gray-700 hover:text-primary-600 hover:bg-gray-50 rounded-md font-medium transition-colors duration-200"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {link.name}

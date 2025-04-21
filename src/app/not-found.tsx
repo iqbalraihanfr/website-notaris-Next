@@ -1,19 +1,7 @@
-/**
- * @file not-found.tsx
- * @description Halaman 404 (Not Found) yang ditampilkan ketika URL tidak ditemukan
- * @author Iqbal Raihan Faturrahman Rahardjo
- * @created 2024
- */
-
 import React from "react";
 import Layout from "../app/layout";
 import Link from "next/link";
 
-/**
- * Komponen Halaman 404
- * @component
- * @returns {JSX.Element} Halaman 404 yang telah dirender
- */
 const NotFound: React.FC = () => {
   return (
     <Layout>
