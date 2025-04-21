@@ -1,10 +1,19 @@
+/**
+ * @file globals.css
+ * @description File CSS global yang berisi variabel, tema, dan utility classes untuk seluruh aplikasi
+ * @author Iqbal Raihan Faturrahman Rahardjo
+ * @created 2024
+ */
+
 @import "tailwindcss";
 
+/* Variabel root untuk tema aplikasi */
 :root {
   --background: #ffffff;
   --foreground: #171717;
 }
 
+/* Konfigurasi tema inline */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -12,6 +21,7 @@
   --font-mono: var(--font-geist-mono);
 }
 
+/* Konfigurasi tema gelap */
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
@@ -19,15 +29,16 @@
   }
 }
 
+/* Style dasar untuk body */
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans);
 }
 
-/* Custom utility classes */
+/* Utility classes untuk tombol */
 .btn-primary {
-  background-color: rgb(2, 132, 199);
+  background-color: rgb(124, 58, 237);
   color: white;
   font-weight: 500;
   padding: 0.5rem 1.5rem;
@@ -37,7 +48,7 @@ body {
 }
 
 .btn-primary:hover {
-  background-color: rgb(3, 105, 161);
+  background-color: rgb(109, 40, 217);
 }
 
 .btn-secondary {
@@ -63,25 +74,7 @@ body {
   transition: all 0.2s;
 }
 
-.btn-outline:hover {
-  background-color: white;
-  color: rgb(2, 132, 199);
-}
-
-.btn-accent {
-  background-color: rgb(249, 115, 22);
-  color: white;
-  font-weight: 500;
-  padding: 0.5rem 1.5rem;
-  border-radius: 0.5rem;
-  transition: all 0.2s;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-}
-
-.btn-accent:hover {
-  background-color: rgb(234, 88, 12);
-}
-
+/* Utility class untuk kartu */
 .card {
   background-color: white;
   border-radius: 0.75rem;
@@ -94,6 +87,7 @@ body {
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
+/* Utility class untuk judul section */
 .section-title {
   font-size: 1.875rem;
   line-height: 2.25rem;
@@ -103,6 +97,7 @@ body {
   font-family: serif;
 }
 
+/* Responsive styling untuk judul section */
 @media (min-width: 768px) {
   .section-title {
     font-size: 2.25rem;
@@ -110,6 +105,7 @@ body {
   }
 }
 
+/* Utility class untuk subtitle section */
 .section-subtitle {
   font-size: 1.125rem;
   line-height: 1.75rem;
@@ -120,6 +116,7 @@ body {
   margin-bottom: 3rem;
 }
 
+/* Utility class untuk container */
 .container {
   max-width: 80rem;
   margin-left: auto;
@@ -128,6 +125,7 @@ body {
   padding-right: 1rem;
 }
 
+/* Responsive styling untuk container */
 @media (min-width: 640px) {
   .container {
     padding-left: 1.5rem;
@@ -142,7 +140,7 @@ body {
   }
 }
 
-/* Animation classes */
+/* Animasi */
 .animate-fade-in {
   animation: fadeIn 0.5s ease-in-out;
 }
@@ -155,6 +153,7 @@ body {
   animation: slideDown 0.5s ease-out;
 }
 
+/* Keyframes untuk animasi */
 @keyframes fadeIn {
   0% { opacity: 0; }
   100% { opacity: 1; }
@@ -183,7 +182,7 @@ body {
   background-size: 40px 40px;
 }
 
-/* Responsive typography */
+/* Typography responsive */
 h1 {
   font-size: 2.25rem;
   line-height: 2.5rem;
@@ -228,13 +227,6 @@ h3 {
     font-size: 1.875rem;
     line-height: 2.25rem;
   }
-}
-
-p {
-  font-size: 1rem;
-  line-height: 1.5rem;
-  color: rgb(55, 65, 81);
-  line-height: 1.625;
 }
 
 @media (min-width: 768px) {

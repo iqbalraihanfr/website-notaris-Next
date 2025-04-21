@@ -36,20 +36,20 @@ const Navbar: React.FC = () => {
 
   return (
     <header 
-      className={`sticky top-0 z-50 transition-all duration-300 ${
+      className={`sticky top-0 z-50 transition-all duration-300 w-full ${
         scrolled 
           ? 'bg-white shadow-md py-2' 
           : 'bg-transparent py-4'
       }`}
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center">
+      <div className="w-full px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center max-w-[2000px] mx-auto">
           <div className="flex items-center">
             <Link href="/" className="flex items-center">
               <span className={`text-xl sm:text-2xl font-serif font-bold transition-colors duration-300 ${
-                scrolled ? 'text-primary-600' : 'text-white'
+                scrolled ? 'text-black' : 'text-white'
               }`}>
-                Notaris <span className="text-accent-500">Digital</span>
+                Kantor <span className="text-accent-500">Notaris</span>
               </span>
             </Link>
           </div>
@@ -62,8 +62,8 @@ const Navbar: React.FC = () => {
                 href={link.path}
                 className={`font-medium transition-colors duration-200 ${
                   scrolled 
-                    ? 'text-gray-700 hover:text-primary-600' 
-                    : 'text-white hover:text-accent-300'
+                    ? 'text-gray-700 hover:text-purple-600' 
+                    : 'text-white hover:text-purple-300'
                 }`}
               >
                 {link.name}
@@ -71,10 +71,11 @@ const Navbar: React.FC = () => {
             ))}
             <Link 
               href="/konsultasi" 
-              className={`px-4 py-2 rounded-lg font-medium transition-all duration-200 ${
+              className={`px-4 text-amber-50 hover:text-amber-500
+                 py-2 rounded-lg font-medium transition-all duration-200 ${
                 scrolled 
-                  ? 'btn-primary' 
-                  : 'bg-white text-primary-600 hover:bg-accent-100'
+                  ? 'bg-violet-500 text-white hover:bg-accent-100' 
+                  : 'bg-violet-500 text-primary-600 hover:bg-accent-100'
               }`}
             >
               Konsultasi Gratis
@@ -106,7 +107,7 @@ const Navbar: React.FC = () => {
                 <Link
                   key={link.name}
                   href={link.path}
-                  className="block py-2 px-3 text-gray-700 hover:text-primary-600 hover:bg-gray-50 rounded-md font-medium transition-colors duration-200"
+                  className="block py-2 px-3 text-gray-700 hover:text-purple-600 hover:bg-gray-50 rounded-md font-medium transition-colors duration-200"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {link.name}

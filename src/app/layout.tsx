@@ -1,3 +1,10 @@
+/**
+ * @file layout.tsx
+ * @description Layout utama aplikasi yang mencakup Navbar, Footer, dan konfigurasi font
+ * @author Iqbal Raihan Faturrahman Rahardjo
+ * @created 2024
+ */
+
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import React from "react";
@@ -5,18 +12,29 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { ConsultationProvider } from '../context/ConsultationContext';
 
+/**
+ * Konfigurasi font Geist Sans untuk teks umum
+ */
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
 });
 
+/**
+ * Konfigurasi font Geist Mono untuk kode
+ */
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
 
-
-// This is the root layout that includes Navbar and Footer
+/**
+ * Layout utama aplikasi
+ * @component
+ * @param {Object} props - Props untuk komponen Layout
+ * @param {React.ReactNode} props.children - Konten yang akan dirender di dalam layout
+ * @returns {JSX.Element} Layout utama yang telah dirender
+ */
 export default function RootLayout({
   children,
 }: Readonly<{

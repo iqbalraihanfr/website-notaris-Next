@@ -58,16 +58,16 @@ const TentangKami: React.FC = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <div className="grid md:grid-cols-2 gap-12">
-              <div className="bg-notary-muted p-8 rounded-lg border-l-4 border-notary">
-                <h2 className="text-2xl font-bold font-serif text-notary mb-4">Visi Kami</h2>
-                <p className="text-gray-700">
+              <div className="bg-notary-muted p-8 rounded-lg border-l-4 border-violet-500 shadow-md">
+                <h2 className="text-2xl font-bold font-serif text-black mb-4">Visi Kami</h2>
+                <p className="text-black">
                   Menjadi penyedia layanan notaris terdepan yang menggabungkan profesionalisme hukum dengan inovasi digital 
                   untuk memberikan layanan berkualitas tinggi yang mudah diakses oleh masyarakat.
                 </p>
               </div>
               
-              <div className="bg-notary-muted p-8 rounded-lg border-l-4 border-notary-accent">
-                <h2 className="text-2xl font-bold font-serif text-notary mb-4">Misi Kami</h2>
+              <div className="bg-notary-muted p-8 rounded-lg border-l-4 border-violet-500 shadow-md">
+                <h2 className="text-2xl font-bold font-serif text-black mb-4">Misi Kami</h2>
                 <ul className="text-gray-700 space-y-2">
                   <li className="flex items-start">
                     <span className="text-notary-accent mr-2">•</span>
@@ -96,7 +96,7 @@ const TentangKami: React.FC = () => {
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold font-serif text-notary mb-4">Tim Kami</h2>
+            <h2 className="text-3xl font-bold font-serif text-black mb-4">Tim Kami</h2>
             <p className="text-gray-600 max-w-3xl mx-auto">
               Didukung oleh para profesional berpengalaman dan berkomitmen untuk memberikan layanan terbaik.
             </p>
@@ -104,15 +104,15 @@ const TentangKami: React.FC = () => {
 
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {teamMembers.map((member, index) => (
-              <div key={index} className="bg-white rounded-lg shadow p-6 hover:shadow-md transition-shadow">
+              <div key={index} className="bg-white rounded-lg shadow p-6 hover:shadow-lg transition-shadow">
                 <div className="w-24 h-24 bg-notary-light rounded-full mx-auto mb-4 flex items-center justify-center">
                   <span className="text-white text-2xl font-bold">
                     {member.name.split(' ')[0][0]}{member.name.split(' ')[1][0]}
                   </span>
                 </div>
-                <h3 className="text-xl font-bold text-notary text-center mb-1">{member.name}</h3>
-                <p className="text-notary-accent text-center text-sm mb-4">{member.role}</p>
-                <p className="text-gray-600 text-center">{member.bio}</p>
+                <h3 className="text-xl font-bold text-black text-center mb-1">{member.name}</h3>
+                <p className="text-black text-center text-sm mb-4">{member.role}</p>
+                <p className="text-black text-center">{member.bio}</p>
               </div>
             ))}
           </div>

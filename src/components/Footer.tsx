@@ -34,9 +34,9 @@ const Footer: React.FC = () => {
   ];
 
   return (
-    <footer className="bg-gray-900 text-white pt-16 pb-8">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
+    <footer className="bg-gray-900 text-white pt-16 pb-8 w-full">
+      <div className="w-full px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12 max-w-[2000px] mx-auto">
           {/* Company Info */}
           <div className="lg:col-span-2">
             <h3 className="text-2xl font-bold font-serif mb-4">Notaris Digital</h3>

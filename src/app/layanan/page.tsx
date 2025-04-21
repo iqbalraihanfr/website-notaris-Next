@@ -1,9 +1,25 @@
+/**
+ * @file Layanan.tsx
+ * @description Halaman yang menampilkan daftar layanan notaris yang tersedia
+ * @author Iqbal Raihan Faturrahman Rahardjo
+ * @created 2024
+ */
+
 import React from 'react';
 import { Layout } from "../../app/layout";
 import PageHeader from '../../components/ui/PageHeader';
 import Link from 'next/link';
 
-// Services data
+/**
+ * Data layanan notaris yang tersedia
+ * @type {Array<{
+ *   id: string,
+ *   title: string,
+ *   description: string,
+ *   features: string[],
+ *   icon: string
+ * }>}
+ */
 const services = [
   {
     id: 'pendirian-pt',
@@ -111,6 +127,11 @@ const services = [
   },
 ];
 
+/**
+ * Komponen Halaman Layanan
+ * @component
+ * @returns {JSX.Element} Halaman yang menampilkan daftar layanan notaris
+ */
 const Layanan: React.FC = () => {
   return (
     <Layout>
@@ -119,41 +140,49 @@ const Layanan: React.FC = () => {
         subtitle="Berbagai layanan notaris dan PPAT profesional untuk kebutuhan personal dan bisnis Anda"
       />
 
-      {/* Services Section */}
+      {/* Bagian Daftar Layanan */}
       <section className="py-16">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service) => (
-              <div key={service.id} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
-                <div className="p-6">
-                  <div className="w-16 h-16 bg-notary-muted rounded-full flex items-center justify-center text-3xl mb-4">
-                    {service.icon}
+        <div className="w-full px-4 sm:px-6 lg:px-8">
+          <div className="max-w-[2000px] mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {services.map((service) => (
+                <div
+                  key={service.id}
+                  className="card group hover:border-violet-500 border-2 border-gray-100"
+                >
+                  <div className="w-12 h-12 bg-black text-primary-600 rounded-lg flex items-center justify-center mb-4 group-hover:bg-violet-600 group-hover:text-white transition-colors duration-300">
+                    <span className="text-2xl">{service.icon}</span>
                   </div>
-                  <h3 className="text-xl font-bold text-notary mb-3">{service.title}</h3>
+                  <h3 className="text-xl font-bold text-gray-800 mb-3">
+                    {service.title}
+                  </h3>
                   <p className="text-gray-600 mb-4">{service.description}</p>
-                  <h4 className="font-medium text-notary mb-2">Fitur Layanan:</h4>
+                  <h4 className="font-medium text-gray-800 mb-2">Fitur Layanan:</h4>
                   <ul className="text-gray-600 space-y-1 mb-6">
                     {service.features.map((feature, index) => (
                       <li key={index} className="flex items-start">
-                        <span className="text-notary-accent mr-2">•</span>
+                        <span className="text-violet-500 mr-2">•</span>
                         <span>{feature}</span>
                       </li>
                     ))}
                   </ul>
                   <Link
                     href="/konsultasi"
-                    className="inline-block mt-2 text-notary hover:text-notary-light font-medium transition-colors duration-200"
+                    className="text-black hover:text-violet-500 font-medium inline-flex items-center"
                   >
-                    Konsultasi Sekarang →
+                    Konsultasi Sekarang
+                    <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
                   </Link>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* Bagian Call-to-Action */}
       <section className="py-16 bg-notary-muted">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
