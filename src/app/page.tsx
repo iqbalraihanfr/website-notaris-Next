@@ -218,7 +218,7 @@ const Index: React.FC = () => {
                   </div>
                 </div>
                 <p className="text-gray-600 italic">
-                  "Layanan yang sangat profesional dan cepat. Tim Notaris Digital membantu saya dalam proses pendirian PT dengan sangat baik."
+                  &quot;Layanan yang sangat profesional dan cepat. Tim Notaris Digital membantu saya dalam proses pendirian PT dengan sangat baik.&quot;
                 </p>
               </div>
             ))}
